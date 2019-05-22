@@ -17,7 +17,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -29,4 +29,19 @@ export default {
 main {
     padding-top: 60px;
   }
+
+// Bulma customization
+// Import Bulma's core
+// @import "~bulma/sass/utilities/_all";
+
+// $primary: #3AAFA9;
+// $primary-invert: findColorInvert($primary);
+// $primary-invert: #17252A;
+
+// $secondary: #17252A;
+// $secondary-invert: findColorInvert($secondary);
+
+// Import Bulma and Buefy styles
+// @import "~bulma";
+// @import "~buefy/src/scss/buefy";
 </style>

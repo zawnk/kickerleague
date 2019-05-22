@@ -14,6 +14,8 @@ export default {
   methods: {
     logout () {
       this.$store.dispatch('auth/clear')
+      this.$store.dispatch('league/clear')
+      this.$store.dispatch('user/clear')
     }
   },
   mounted () {

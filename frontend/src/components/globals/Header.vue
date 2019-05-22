@@ -2,6 +2,7 @@
   <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <router-link
+        v-if="!this.isUserLoggedIn"
         class="navbar-item"
         to="/"
         exact
@@ -11,6 +12,12 @@
           size="is-medium">
         </b-icon>
       </router-link>
+      <div v-if="this.isUserLoggedIn" class="navbar-item">
+        <b-icon
+          icon="futbol"
+          size="is-medium">
+        </b-icon>
+      </div>
 
       <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
         <span aria-hidden="true"></span>
@@ -86,7 +93,7 @@
             <a v-if="!this.isUserLoggedIn" class="button is-primary">
               <strong>Create a League</strong>
             </a>
-            <a class="button is-light">
+            <a class="button is-secondary">
               <router-link v-if="this.isUserLoggedIn" to="/logout">
                 Log out
               </router-link>
