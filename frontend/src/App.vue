@@ -4,26 +4,33 @@
     <main>
       <router-view />
     </main>
+    <page-footer />
   </div>
 </template>
 
 <script>
 import PageHeader from './components/globals/Header'
+import PageFooter from './components/globals/Footer'
 export default {
   name: 'app',
   components: {
     PageHeader,
+    PageFooter
   }
 }
 </script>
 
 <style lang="scss">
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  // font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+  display: flex;
 }
 
 main {
