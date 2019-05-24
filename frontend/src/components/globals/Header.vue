@@ -89,18 +89,27 @@
           Rulebook
         </a>
         <div class="navbar-item">
-          <div class="buttons">
-            <a v-if="!this.isUserLoggedIn" class="button is-primary">
-              <strong>Create a League</strong>
+          <a class="button is-secondary" v-if="!this.isUserLoggedIn">
+            <router-link to="/login">
+              Log in
+            </router-link>
+          </a>
+          <div v-if="this.isUserLoggedIn" class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              Hi, name!
             </a>
-            <a class="button is-secondary">
-              <router-link v-if="this.isUserLoggedIn" to="/logout">
+
+            <div class="navbar-dropdown">
+              <a class="navbar-item">
+                Settings
+              </a>
+              <a class="navbar-item">
+                Create League
+              </a>
+              <router-link class="navbar-item" to="/logout">
                 Log out
               </router-link>
-              <router-link v-else to="/login">
-                Log in
-              </router-link>
-            </a>
+            </div>
           </div>
         </div>
       </div>

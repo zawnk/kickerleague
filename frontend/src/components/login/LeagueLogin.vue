@@ -2,10 +2,10 @@
   <section class="section">
     <div class="column is-one-third is-offset-one-third">
       <b-field
-        label="League Name"
+        label="E-Mail"
         :type="{ 'is-danger': hasError }"
       >
-        <b-input type="text" maxlength="30" v-model="leagueName" required autofocus :disabled="this.isLoading" />
+        <b-input type="email" maxlength="30" v-model="leagueName" required autofocus :disabled="this.isLoading" />
       </b-field>
 
       <b-field
