@@ -5,14 +5,14 @@
         label="E-Mail"
         :type="{ 'is-danger': hasError }"
       >
-        <b-input type="email" maxlength="30" v-model="leagueName" required autofocus :disabled="this.isLoading" />
+        <b-input type="email" v-model="leagueName" required autofocus :disabled="this.isLoading" />
       </b-field>
 
       <b-field
         label="Password"
         :type="{ 'is-danger': hasError }"
       >
-          <b-input type="password" maxlength="30" v-model="password" @keyup.native.enter="checkLogin" :disabled="this.isLoading" required />
+          <b-input type="password" v-model="password" @keyup.native.enter="checkLogin" :disabled="this.isLoading" required />
       </b-field>
 
       <b-button @click.stop="checkLogin" :loading="this.isLoading">Send</b-button>

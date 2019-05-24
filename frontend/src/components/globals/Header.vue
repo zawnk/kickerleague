@@ -44,7 +44,7 @@
           class="navbar-item"
           :to="{ name: 'resultentry', params: { leagueId: this.$route.params.leagueId } }"
         >
-          Enter results
+          Enter Results
         </router-link>
 
         <div v-if="this.isUserLoggedIn && this.$route.params.leagueId" class="navbar-item has-dropdown is-hoverable">
@@ -89,14 +89,18 @@
           Rulebook
         </a>
         <div class="navbar-item">
-          <a class="button is-secondary" v-if="!this.isUserLoggedIn">
-            <router-link to="/login">
-              Log in
-            </router-link>
-          </a>
+          <div class="buttons" v-if="!this.isUserLoggedIn">
+              <b-button tag="router-link" to="/signup" type="is-link">
+                Sign Up
+              </b-button>
+            <b-button tag="router-link" to="/login" type="is-secondary">
+              Log In
+            </b-button>
+          </div>
+          
           <div v-if="this.isUserLoggedIn" class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link">
-              Hi, name!
+              Hi, {{ displayName }}!
             </a>
 
             <div class="navbar-dropdown">
@@ -107,7 +111,7 @@
                 Your Leagues
               </router-link>
               <router-link class="navbar-item" to="/logout">
-                Log out
+                Log Out
               </router-link>
             </div>
           </div>
@@ -122,6 +126,11 @@ import {mapState} from 'vuex'
 
 export default {
   name: 'pageheader',
+  data () {
+    return {
+      displayName: 'zonk'
+    }
+  },
   computed: {
     ...mapState('auth', ['isUserLoggedIn'])
   },
