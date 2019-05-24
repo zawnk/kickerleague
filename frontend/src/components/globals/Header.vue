@@ -90,7 +90,7 @@
         </a>
         <div class="navbar-item">
           <div class="buttons" v-if="!this.isUserLoggedIn">
-              <b-button tag="router-link" to="/signup" type="is-link">
+              <b-button tag="router-link" to="/signup" type="is-primary">
                 Sign Up
               </b-button>
             <b-button tag="router-link" to="/login" type="is-secondary">
