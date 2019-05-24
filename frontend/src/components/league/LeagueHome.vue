@@ -1,16 +1,149 @@
 <template>
-  <div class="column">
-    League {{ this.$route.params.leagueId }} Home<br/>
-    User: {{ this.$store.state.auth.token }}
+  <div class="section leagehome">
+    <div class="column">
+      <h1 class="title has-text-left">{{ name }} home</h1>
+    </div>
+
+    <div class="columns is-vcentered is-centered is-variable is-6">
+      <div class="column is-narrow">
+        <article class="message is-secondary">
+          <div class="message-header">
+            <p>Current streaks:</p>
+          </div>
+          <div class="message-body has-text-left">
+            <ul>
+              <li>team A @ <span class="has-text-success">+2</span></li>
+              <li>team D @ <span class="has-text-danger">-2</span></li>
+            </ul>
+          </div>
+        </article>
+      </div>
+
+      <div class="column is-three-fifths">
+        <b-table
+          :data="standings"
+          hoverable
+        >
+          <template slot-scope="props" slot="header">
+              <b-tooltip :active="!!props.column.meta" :label="props.column.meta" animated dashed>
+                  {{ props.column.label }}
+              </b-tooltip>
+          </template>
+
+          <template slot-scope="props">
+            <b-table-column field="position" label="P" meta="Position" sortable>
+              {{ props.row.position }}
+            </b-table-column>
+            <b-table-column field="team" label="Name" meta="" sortable>
+              {{ props.row.team }}
+            </b-table-column>
+            <b-table-column field="wins" label="W" meta="Wins" sortable centered>
+              {{ props.row.wins }}
+            </b-table-column>
+            <b-table-column field="losses" label="L" meta="Losses" sortable>
+              {{ props.row.losses }}
+            </b-table-column>
+            <b-table-column field="trend" label="Trend" meta="" centered>
+              <span v-for="(t, index) in props.row.trend" :key="index" :class="[t ? 'has-background-primary' : 'has-background-danger', 'trend']" />
+            </b-table-column>
+            <b-table-column field="points" label="Pts" meta="Points" sortable centered>
+              {{ props.row.points }}
+            </b-table-column>
+          </template>
+        </b-table>
+      </div>
+
+      <div class="column is-narrow">
+        <article class="message is-secondary">
+          <div class="message-header">
+            <p>All-time streaks:</p>
+          </div>
+          <div class="message-body has-text-left">
+            <ul>
+              <li>team A @ <span class="has-text-success">+6</span></li>
+              <li>team E @ <span class="has-text-danger">-5</span></li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column">
+        Last 20 Matches
+      </div>
+    </div>
+
+    <div class="columns">
+      <div class="column is-one-quarter is-offset-one-quarter">
+        first ten match history
+      </div>
+      <div class="column is-one-quarter">
+        other ten match history
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-
+  data() {
+    return {
+      name: 'LeagueName',
+      standings: [
+        {
+          position: 1,
+          team: 'team A',
+          wins: 10,
+          losses: 7,
+          trend: [1,1,1,0,1],
+          points: 30
+        },
+        {
+          position: 2,
+          team: 'team B',
+          wins: 8,
+          losses: 9,
+          trend: [1,0,1,0,1],
+          points: 24
+        },
+        {
+          position: 3,
+          team: 'team C',
+          wins: 6,
+          losses: 11,
+          trend: [1,1,0,0,1],
+          points: 18
+        },
+        {
+          position: 4,
+          team: 'team D',
+          wins: 4,
+          losses: 13,
+          trend: [0,1,1,0,0],
+          points: 12
+        },
+        {
+          position: 5,
+          team: 'team E',
+          wins: 2,
+          losses: 15,
+          trend: [0,0,0,0,1],
+          points: 6
+        },
+      ]
+    }
+  }
 }
 </script>
 
 <style>
-
+span.trend {
+  border-radius: 2px;
+  box-shadow: 0 2px 3px 0 rgba(0,0,0,.1), inset 0 0 0 1px rgba(0,0,0,.1);
+  display: inline-block;
+  height: 24px;
+  margin-right: 3px;
+  width: 24px;
+}
 </style>

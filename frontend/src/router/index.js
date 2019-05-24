@@ -45,6 +45,13 @@ export default new Router({
         {
           path: '/league/:leagueId',
           component: League,
+          beforeEnter: (to, from, next) => {
+            if (store.state.auth.isUserLoggedIn) {
+              next()
+            } else {
+              next('/')
+            }
+          },
           children: [
             {
               path: '',
