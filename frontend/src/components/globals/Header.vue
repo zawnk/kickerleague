@@ -30,7 +30,7 @@
       <div class="navbar-start">
 
         <router-link
-          v-if="this.isUserLoggedIn"
+          v-if="this.isUserLoggedIn && this.$route.params.leagueId"
           class="navbar-item"
           :to="{ name: 'leaguehome', params: { leagueId: this.$route.params.leagueId } }"
           exact
@@ -40,14 +40,14 @@
 
 
         <router-link
-          v-if="this.isUserLoggedIn"
+          v-if="this.isUserLoggedIn && this.$route.params.leagueId"
           class="navbar-item"
           :to="{ name: 'resultentry', params: { leagueId: this.$route.params.leagueId } }"
         >
           Enter results
         </router-link>
 
-        <div v-if="this.isUserLoggedIn" class="navbar-item has-dropdown is-hoverable">
+        <div v-if="this.isUserLoggedIn && this.$route.params.leagueId" class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">
             League
           </a>
@@ -68,7 +68,7 @@
           </div>
         </div>
 
-        <div v-if="this.isUserLoggedIn" class="navbar-item has-dropdown is-hoverable">
+        <div v-if="this.isUserLoggedIn && this.$route.params.leagueId" class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">
             Teams
           </a>
@@ -103,9 +103,9 @@
               <a class="navbar-item">
                 Settings
               </a>
-              <a class="navbar-item">
-                Create League
-              </a>
+              <router-link class="navbar-item" to="/index">
+                Your Leagues
+              </router-link>
               <router-link class="navbar-item" to="/logout">
                 Log out
               </router-link>
