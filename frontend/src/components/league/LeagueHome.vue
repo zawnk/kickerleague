@@ -76,7 +76,9 @@
 
     <div class="columns">
       <div class="column is-one-quarter is-offset-one-quarter">
-        first ten match history
+        <ul class="has-text-left">
+          <li v-for="match in history" :key="match.timestamp">{{ match.teams[match.winner] }} beat {{ match.teams[1 - match.winner] }} with {{ match.accumulatedScore }} <span class="is-size-7 has-text-grey">{{ timestampToReadableString(match.timestamp) }}</span></li>
+        </ul>
       </div>
       <div class="column is-one-quarter">
         other ten match history
@@ -86,6 +88,9 @@
 </template>
 
 <script>
+import TimeAgo from 'javascript-time-ago'
+import en from 'javascript-time-ago/locale/en'
+
 export default {
   data() {
     return {
@@ -131,7 +136,61 @@ export default {
           trend: [0,0,0,0,1],
           points: 6
         },
+      ],
+      history: [
+        {
+          teams: [
+            'team A',
+            'team E'
+          ],
+          winner: 0,
+          accumulatedScore: '21-5',
+          timestamp: '2019-05-24T22:17:45.162Z'
+        },
+        {
+          teams: [
+            'team A',
+            'team E'
+          ],
+          winner: 1,
+          accumulatedScore: '12-21',
+          timestamp: '2019-05-24T20:17:45.162Z'
+        },
+        {
+          teams: [
+            'team C',
+            'team D'
+          ],
+          winner: 0,
+          accumulatedScore: '21-17',
+          timestamp: '2019-05-24T12:17:45.162Z'
+        },
+        {
+          teams: [
+            'team B',
+            'team C'
+          ],
+          winner: 1,
+          accumulatedScore: '11-21',
+          timestamp: '2019-05-23T22:17:45.162Z'
+        },
+        {
+          teams: [
+            'team A',
+            'team D'
+          ],
+          winner: 0,
+          accumulatedScore: '21-15',
+          timestamp: '2019-01-24T22:17:45.162Z'
+        }
       ]
+    }
+  },
+  methods: {
+    timestampToReadableString: function (timestamp) {
+      TimeAgo.addLocale(en)
+      const timeAgo = new TimeAgo('en-US')
+      return timeAgo.format(new Date(timestamp))
     }
   }
 }
