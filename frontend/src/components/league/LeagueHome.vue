@@ -12,7 +12,7 @@
           </div>
           <div class="message-body has-text-left">
             <ul>
-              <li>team A @ <span class="has-text-success">+2</span></li>
+              <li>team A @ <span class="has-text-primary">+2</span></li>
               <li>team D @ <span class="has-text-danger">-2</span></li>
             </ul>
           </div>
@@ -60,7 +60,7 @@
           </div>
           <div class="message-body has-text-left">
             <ul>
-              <li>team A @ <span class="has-text-success">+6</span></li>
+              <li>team A @ <span class="has-text-primary">+6</span></li>
               <li>team E @ <span class="has-text-danger">-5</span></li>
             </ul>
           </div>
@@ -70,18 +70,20 @@
 
     <div class="columns is-centered">
       <div class="column">
-        Last 20 Matches
+        <strong>Last 20 Matches</strong>
       </div>
     </div>
 
     <div class="columns">
-      <div class="column is-one-quarter is-offset-one-quarter">
+      <div class="column is-one-third is-offset-2">
         <ul class="has-text-left">
-          <li v-for="match in history" :key="match.timestamp">{{ match.teams[match.winner] }} beat {{ match.teams[1 - match.winner] }} with {{ match.accumulatedScore }} <span class="is-size-7 has-text-grey">{{ timestampToReadableString(match.timestamp) }}</span></li>
+          <li v-for="match in history.slice(0, 10)" :key="match.timestamp">{{ match.teams[match.winner] }} beat {{ match.teams[1 - match.winner] }} with {{ match.accumulatedScore }} <span class="is-size-7 has-text-grey is-hidden-tablet-only">{{ timestampToReadableString(match.timestamp) }}</span></li>
         </ul>
       </div>
-      <div class="column is-one-quarter">
-        other ten match history
+      <div class="column is-one-third">
+        <ul class="has-text-left">
+          <li v-for="match in history.slice(10, 20)" :key="match.timestamp">{{ match.teams[match.winner] }} beat {{ match.teams[1 - match.winner] }} with {{ match.accumulatedScore }} <span class="is-size-7 has-text-grey is-hidden-tablet-only">{{ timestampToReadableString(match.timestamp) }}</span></li>
+        </ul>
       </div>
     </div>
   </div>
@@ -182,7 +184,142 @@ export default {
           winner: 0,
           accumulatedScore: '21-15',
           timestamp: '2019-01-24T22:17:45.162Z'
-        }
+        },
+        {
+          teams: [
+            'team A',
+            'team E'
+          ],
+          winner: 0,
+          accumulatedScore: '21-5',
+          timestamp: '2019-03-24T22:17:45.162Z'
+        },
+        {
+          teams: [
+            'team A',
+            'team E'
+          ],
+          winner: 1,
+          accumulatedScore: '12-21',
+          timestamp: '2019-01-24T20:17:45.162Z'
+        },
+        {
+          teams: [
+            'team C',
+            'team D'
+          ],
+          winner: 0,
+          accumulatedScore: '21-17',
+          timestamp: '2018-05-24T12:17:45.162Z'
+        },
+        {
+          teams: [
+            'team B',
+            'team C'
+          ],
+          winner: 1,
+          accumulatedScore: '11-21',
+          timestamp: '2018-03-23T22:17:45.162Z'
+        },
+        {
+          teams: [
+            'team A',
+            'team D'
+          ],
+          winner: 0,
+          accumulatedScore: '21-15',
+          timestamp: '2013-02-24T22:17:45.162Z'
+        },
+        {
+          teams: [
+            'team A',
+            'team E'
+          ],
+          winner: 0,
+          accumulatedScore: '21-5',
+          timestamp: '2019-05-24T22:17:45.162Z'
+        },
+        {
+          teams: [
+            'team A',
+            'team E'
+          ],
+          winner: 1,
+          accumulatedScore: '12-21',
+          timestamp: '2019-05-24T20:17:45.162Z'
+        },
+        {
+          teams: [
+            'team C',
+            'team D'
+          ],
+          winner: 0,
+          accumulatedScore: '21-17',
+          timestamp: '2019-05-24T12:17:45.162Z'
+        },
+        {
+          teams: [
+            'team B',
+            'team C'
+          ],
+          winner: 1,
+          accumulatedScore: '11-21',
+          timestamp: '2019-05-23T22:17:45.162Z'
+        },
+        {
+          teams: [
+            'team A',
+            'team D'
+          ],
+          winner: 0,
+          accumulatedScore: '21-15',
+          timestamp: '2019-01-24T22:17:45.162Z'
+        },
+        {
+          teams: [
+            'team A',
+            'team E'
+          ],
+          winner: 0,
+          accumulatedScore: '21-5',
+          timestamp: '2019-03-24T22:17:45.162Z'
+        },
+        {
+          teams: [
+            'team A',
+            'team E'
+          ],
+          winner: 1,
+          accumulatedScore: '12-21',
+          timestamp: '2019-01-24T20:17:45.162Z'
+        },
+        {
+          teams: [
+            'team C',
+            'team D'
+          ],
+          winner: 0,
+          accumulatedScore: '21-17',
+          timestamp: '2018-05-24T12:17:45.162Z'
+        },
+        // {
+        //   teams: [
+        //     'team B',
+        //     'team C'
+        //   ],
+        //   winner: 1,
+        //   accumulatedScore: '11-21',
+        //   timestamp: '2018-03-23T22:17:45.162Z'
+        // },
+        // {
+        //   teams: [
+        //     'team A',
+        //     'team D'
+        //   ],
+        //   winner: 0,
+        //   accumulatedScore: '21-15',
+        //   timestamp: '2013-02-24T22:17:45.162Z'
+        // }
       ]
     }
   },
