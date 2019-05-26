@@ -12,6 +12,20 @@
             required
           ></b-input>
         </b-field>
+        
+        <b-field>
+          <template slot="label">
+            <b-tooltip label="Shown to all users. Can be changed any any time." animated dashed>
+              Display Name
+            </b-tooltip>
+          </template>
+          <b-input
+            type="text"
+            v-model="displayName"
+            :disabled="this.isLoading"
+            required
+          ></b-input>
+        </b-field>
 
         <b-field
           label="Password"
@@ -50,7 +64,8 @@ export default {
     return {
       mail: '',
       password: '',
-      confirmedPassword: ''
+      confirmedPassword: '',
+      displayName: ''
     }
   },
   computed: {

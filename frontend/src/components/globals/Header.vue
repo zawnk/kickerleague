@@ -75,6 +75,9 @@
 
           <div class="navbar-dropdown">
             <a class="navbar-item">
+              View Results
+            </a>
+            <a class="navbar-item">
               View Schedule
             </a>
             <a class="navbar-item">
