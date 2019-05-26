@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="content has-text-centered">
     {{ this.message }}
   </div>
 </template>

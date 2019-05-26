@@ -3,8 +3,8 @@
     <div class="column">
       <h1 class="title has-text-left">Your Leagues</h1>
     </div>
-    <div class="columns is-centered">
-      <div class="column is-6-desktop" id="playerleagues">
+    <div class="columns">
+      <div class="column is-three-fifths-desktop is-offset-one-fifth-desktop" id="playerleagues">
         <h1 class="subtitle">Looks like you're playing in these leagues:</h1>
 
         <b-table
@@ -38,8 +38,8 @@
       </div>
     </div>
 
-    <div class="columns is-centered">
-      <div class="column is-4-desktop">
+    <div class="columns">
+      <div class="column is-three-fifths-desktop is-offset-one-fifth-desktop">
       <h1 class="subtitle">Other leagues you might be interested in:</h1>
 
       <b-table

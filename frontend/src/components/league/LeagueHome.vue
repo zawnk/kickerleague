@@ -68,22 +68,19 @@
       </div>
     </div>
 
-    <div class="columns is-centered">
-      <div class="column">
-        <strong>Last 20 Matches</strong>
-      </div>
-    </div>
-
-    <div class="columns">
-      <div class="column is-one-third is-offset-2">
-        <ul class="has-text-left">
-          <li v-for="match in history.slice(0, 10)" :key="match.timestamp">{{ match.teams[match.winner] }} beat {{ match.teams[1 - match.winner] }} with {{ match.accumulatedScore }} <span class="is-size-7 has-text-grey is-hidden-tablet-only">{{ timestampToReadableString(match.timestamp) }}</span></li>
-        </ul>
-      </div>
-      <div class="column is-one-third">
-        <ul class="has-text-left">
-          <li v-for="match in history.slice(10, 20)" :key="match.timestamp">{{ match.teams[match.winner] }} beat {{ match.teams[1 - match.winner] }} with {{ match.accumulatedScore }} <span class="is-size-7 has-text-grey is-hidden-tablet-only">{{ timestampToReadableString(match.timestamp) }}</span></li>
-        </ul>
+    <div class="column">
+      <div class="content has-text-centered"><strong>Last 20 Matches</strong></div>
+      <div class="columns is-centered">
+        <div class="column is-one-third">
+          <ul>
+            <li v-for="match in history.slice(0, 10)" :key="match.timestamp">{{ match.teams[match.winner] }} beat {{ match.teams[1 - match.winner] }} with {{ match.accumulatedScore }} <span class="is-size-7 has-text-grey is-hidden-tablet-only">{{ timestampToReadableString(match.timestamp) }}</span></li>
+          </ul>
+        </div>
+        <div class="column is-one-third">
+          <ul>
+            <li v-for="match in history.slice(10, 20)" :key="match.timestamp">{{ match.teams[match.winner] }} beat {{ match.teams[1 - match.winner] }} with {{ match.accumulatedScore }} <span class="is-size-7 has-text-grey is-hidden-tablet-only">{{ timestampToReadableString(match.timestamp) }}</span></li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>

@@ -9,13 +9,27 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import PageHeader from './components/globals/Header'
 import PageFooter from './components/globals/Footer'
+
 export default {
   name: 'app',
   components: {
     PageHeader,
     PageFooter
+  },
+  methods: {
+    ...mapActions('user', [
+      'setLoading'
+    ]),
+  },
+  created() {
+    this.setLoading(true)
+  },
+  mounted() {
+    // When a new page is opened, reset the loading state back to not loading, no matter what
+    this.setLoading(false)
   }
 }
 </script>
@@ -25,7 +39,7 @@ export default {
   // font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  // text-align: center;
   color: #2c3e50;
   min-height: 100vh;
   flex-direction: column;
@@ -76,4 +90,9 @@ $link-focus-border: $primary;
 //     outline:    solid 0.25rem hsla(210, 100%, 100%, 0.5) !important;
 //     box-shadow: none !important;
 // }
+
+// Bottom notices need to be above footer
+div.notices.is-bottom {
+  margin-bottom: 150px;
+}
 </style>

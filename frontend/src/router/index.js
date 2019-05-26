@@ -7,6 +7,7 @@ import LeagueHome from '@/components/league/LeagueHome'
 import League from '@/components/league/League'
 import RulebookPage from '@/components/rulebook/RulebookPage'
 import LeagueIndex from '@/components/league/LeagueIndex'
+import Signup from '@/components/signup/Signup'
 import store from '@/store'
 
 Vue.use(Router)
@@ -19,6 +20,11 @@ export default new Router({
           path: '/',
           name: 'landing',
           component: LandingPage
+        },
+        {
+          path: '/signup',
+          name: 'signup',
+          component: Signup
         },
         {
           path: '/index',
