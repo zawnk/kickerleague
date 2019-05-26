@@ -12,7 +12,7 @@
           </div>
           <div class="message-body has-text-left">
             <ul>
-              <li>team A @ <span class="has-text-primary">+2</span></li>
+              <li>team name with 20 ch @ <span class="has-text-primary">+2</span></li>
               <li>team D @ <span class="has-text-danger">-2</span></li>
             </ul>
           </div>
@@ -97,7 +97,7 @@ export default {
       standings: [
         {
           position: 1,
-          team: 'team A',
+          team: 'team name with 20 ch',
           wins: 10,
           losses: 7,
           trend: [1,1,1,0,1],
@@ -139,8 +139,8 @@ export default {
       history: [
         {
           teams: [
-            'team A',
-            'team E'
+            'team name with 20 ch',
+            'team name with 20 ch'
           ],
           winner: 0,
           accumulatedScore: '21-5',

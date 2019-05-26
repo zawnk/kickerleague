@@ -15,7 +15,7 @@
         
         <b-field>
           <template slot="label">
-            <b-tooltip label="Shown to all users. Can be changed any any time." animated dashed>
+            <b-tooltip label="Shown to all users. Can be changed any time." animated dashed>
               Display Name
             </b-tooltip>
           </template>
