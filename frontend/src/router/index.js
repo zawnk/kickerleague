@@ -5,9 +5,11 @@ import LeagueLogin from '@/components/login/LeagueLogin'
 import LogoutPage from '@/components/logout/LogoutPage'
 import LeagueHome from '@/components/league/LeagueHome'
 import League from '@/components/league/League'
-import RulebookPage from '@/components/rulebook/RulebookPage'
+// import RulebookPage from '@/components/rulebook/RulebookPage'
 import LeagueIndex from '@/components/league/LeagueIndex'
 import Signup from '@/components/signup/Signup'
+import EnterResult from '@/components/result/EnterResult'
+import NotFound from '@/components/globals/NotFound'
 import store from '@/store'
 
 Vue.use(Router)
@@ -67,9 +69,18 @@ export default new Router({
             {
               path: 'resultentry',
               name: 'resultentry',
-              component: RulebookPage
+              component: EnterResult
             },
           ]
+        },
+        {
+          path: '/404',
+          name: 'notfound',
+          component: NotFound
+        },
+        {
+          path: '*',
+          redirect: '/404'
         }
     ]
 })
