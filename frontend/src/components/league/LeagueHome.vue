@@ -1,5 +1,5 @@
 <template>
-  <div class="section leagehome">
+  <div class="section leaguehome">
     <div class="column">
       <h1 class="title has-text-left">{{ name }} home</h1>
     </div>

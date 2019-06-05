@@ -80,9 +80,9 @@
             <a class="navbar-item">
               View Schedule
             </a>
-            <a class="navbar-item">
+            <router-link class="navbar-item" :to="{ name: 'manageteams', params: { leagueId: this.$route.params.leagueId } }">
               Manage
-            </a>
+            </router-link>
           </div>
         </div>
       </div>

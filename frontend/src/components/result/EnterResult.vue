@@ -5,7 +5,7 @@
         <b-field label="Opponent">
             <b-select
               v-model="selectedTeam"
-              placeholder="Select a team"
+              placeholder="Select team"
               icon="user-friends"
               icon-pack="fas"
             >

@@ -10,6 +10,7 @@ import LeagueIndex from '@/components/league/LeagueIndex'
 import Signup from '@/components/signup/Signup'
 import EnterResult from '@/components/result/EnterResult'
 import NotFound from '@/components/globals/NotFound'
+import ManageTeams from '@/components/teams/ManageTeams'
 import store from '@/store'
 
 Vue.use(Router)
@@ -70,6 +71,11 @@ export default new Router({
               path: 'resultentry',
               name: 'resultentry',
               component: EnterResult
+            },
+            {
+              path: 'teams',
+              name: 'manageteams',
+              component: ManageTeams
             },
           ]
         },
