@@ -40,31 +40,39 @@
 
     <div class="columns">
       <div class="column is-three-fifths-desktop is-offset-one-fifth-desktop">
-      <h1 class="subtitle">Other leagues you might be interested in:</h1>
+        <h1 class="subtitle">Other leagues you might be interested in:</h1>
 
-      <b-table
-        :data="openLeagues"
-      >
-        <template slot-scope="props">
-          <b-table-column field="name" label="Name" sortable>
-            {{ props.row.name }}
-          </b-table-column>
-          <b-table-column field="teams" label="Teams" sortable centered>
-            {{ props.row.teams }}
-          </b-table-column>
-          <b-table-column field="join" label="">
-            <b-button
-              tag="router-link"
-              :to="{ name: 'leaguehome', params: { leagueId: props.row.id } }"
-              size="is-small"
-              icon-right="fas fa-angle-right"
-            >
-              View
-            </b-button>
-          </b-table-column>
-        </template>
-      </b-table>
+        <b-table
+          :data="openLeagues"
+        >
+          <template slot-scope="props">
+            <b-table-column field="name" label="Name" sortable>
+              {{ props.row.name }}
+            </b-table-column>
+            <b-table-column field="teams" label="Teams" sortable centered>
+              {{ props.row.teams }}
+            </b-table-column>
+            <b-table-column field="join" label="">
+              <b-button
+                tag="router-link"
+                :to="{ name: 'leaguehome', params: { leagueId: props.row.id } }"
+                size="is-small"
+                icon-right="fas fa-angle-right"
+              >
+                View
+              </b-button>
+            </b-table-column>
+          </template>
+        </b-table>
+      </div>
     </div>
+
+    <div class="columns createleague">
+      <div class="column is-three-fifths-desktop is-offset-one-fifth-desktop">
+        <p class="control is-pulled-right">
+          <b-button :to="{ name: 'leaguecreate' }" tag="router-link">Create Your Own</b-button>
+        </p>
+      </div>
     </div>
 
   </div>
@@ -112,5 +120,9 @@ export default {
 
   div#playerleagues {
     margin-bottom: $gap;
+  }
+
+  div.createleague {
+    margin-top: $gap;
   }
 </style>

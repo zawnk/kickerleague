@@ -6,9 +6,12 @@ import router from './router'
 import "@fortawesome/fontawesome-free/css/all.css"
 import "@fortawesome/fontawesome-free/css/fontawesome.css"
 import { sync } from 'vuex-router-sync'
+import * as VeeValidate from 'vee-validate'
 import store from './store'
 
 Vue.config.productionTip = false
+
+Vue.use(VeeValidate)
 
 Vue.use(Buefy, {
   defaultIconPack: 'fas',

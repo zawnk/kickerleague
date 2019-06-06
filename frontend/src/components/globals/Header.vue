@@ -111,7 +111,7 @@
                 Settings
               </a>
               <router-link class="navbar-item" to="/index">
-                Your Leagues
+                Leagues
               </router-link>
               <router-link class="navbar-item" to="/logout">
                 Log Out

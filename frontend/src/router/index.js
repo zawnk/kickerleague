@@ -1,12 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import LandingPage from '@/components/landing/LandingPage'
-import LeagueLogin from '@/components/login/LeagueLogin'
+import PageLogin from '@/components/login/PageLogin'
 import LogoutPage from '@/components/logout/LogoutPage'
 import LeagueHome from '@/components/league/LeagueHome'
 import League from '@/components/league/League'
 // import RulebookPage from '@/components/rulebook/RulebookPage'
 import LeagueIndex from '@/components/league/LeagueIndex'
+import LeagueCreate from '@/components/league/LeagueCreate'
 import Signup from '@/components/signup/Signup'
 import EnterResult from '@/components/result/EnterResult'
 import NotFound from '@/components/globals/NotFound'
@@ -44,12 +45,24 @@ export default new Router({
         {
           path: '/login',
           name: 'login',
-          component: LeagueLogin
+          component: PageLogin
         },
         {
           path: '/logout',
           name: 'logout',
           component: LogoutPage
+        },
+        {
+          path: '/league/create',
+          name: 'leaguecreate',
+          component: LeagueCreate,
+          beforeEnter: (to, from, next) => {
+            if (store.state.auth.isUserLoggedIn) {
+              next()
+            } else {
+              next('/')
+            }
+          }
         },
         {
           path: '/league/:leagueId',

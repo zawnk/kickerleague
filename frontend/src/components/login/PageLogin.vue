@@ -24,7 +24,9 @@
           />
       </b-field>
 
-      <b-button @click.stop="checkLogin" :loading="this.isLoading">Send</b-button>
+      <p class="control is-pulled-right">
+        <b-button @click.stop="checkLogin" :loading="this.isLoading">Submit</b-button>
+      </p>
     </div>
   </div>
 </template>
@@ -32,7 +34,7 @@
 <script>
 import { mapState } from 'vuex'
 export default {
-  name: 'leaguelogin',
+  name: 'pagelogin',
   data () {
     return {
       hasError: false,
