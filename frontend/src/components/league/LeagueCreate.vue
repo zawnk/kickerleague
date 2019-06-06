@@ -41,7 +41,7 @@
             data-vv-name="maximum players"
             v-model="maxPlayersPerTeam"
             :disabled="this.isLoading"
-            v-validate="`required|min_value:${this.minPlayersPerTeam}`"
+            v-validate="`min_value:${this.minPlayersPerTeam}`"
           ></b-input>
         </b-field>
 
