@@ -12,7 +12,6 @@ Vue.config.productionTip = false
 
 Vue.use(Buefy, {
   defaultIconPack: 'fas',
-  // defaultContainerElement: '#app'
 })
 
 sync(store, router)
