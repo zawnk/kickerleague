@@ -26,7 +26,7 @@
     "@nestjs/platform-express": "^6.0.0",
     "dotenv": "^8.0.0",
     "jsonwebtoken": "^8.5.1",
-    "knex": "^0.19.5",
+    "knex": "^2.4.0",
     "lodash": "^4.17.13",
     "objection": "^1.6.9",
     "reflect-metadata": "^0.1.12",
